@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    font-family:'sans-serif'   }
+
+
+
+  
+
+
+
+
+ .admin-toast,.user-toast{
+        color: rgb(255, 255, 255);
+        font-weight: bold;
+        padding: 16px;
+        width: 300px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 10px 12px;
+        margin-top: 100px;
+
+      
+
+  }
+  .admin-toast{
+    background-color: #508C9B; /* Success color */
+
+  }
+  .user-toast{
+    background-color: #134B70; /* Success color */
+
+  }

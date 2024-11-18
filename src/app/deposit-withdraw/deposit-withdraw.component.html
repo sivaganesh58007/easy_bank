@@ -1,0 +1,62 @@
+<div class="form-container">
+  <div class="form-section">
+    <h2>Deposit or Withdraw Funds</h2>
+    <form [formGroup]="depositWithdrawForm" (ngSubmit)="processing()">
+
+      <!-- Dropdown for selecting transaction type -->
+      <div class="form-group">
+        <label for="transaction-type">Transaction Type:</label>
+        <select id="transaction-type" formControlName="transactionType" (change)="onTransactionTypeChange($event)">
+          <option value="deposit">Deposit</option>
+          <option value="withdraw">Withdraw</option>
+        </select>
+      </div>
+
+      <!-- Conditional display for account number based on transaction type -->
+      <div class="form-group" *ngIf="showAccountNumber">
+        <label for="account-number">Account Number:</label>
+        <input id="account-number" formControlName="accountNumber" placeholder="Enter account number" required>
+      </div>  
+
+      <!-- Amount field is always displayed -->
+      <div class="form-group">
+        <label for="amount">Amount:</label>
+        
+        <input type="number" id="amount" formControlName="amount" placeholder="Enter amount" required>
+      </div>
+
+      <!-- Submit button -->
+      <button type="button"(click)="processing()">{{ transactionType === 'deposit' ? 'Deposit' : 'Withdraw' }}</button>
+      <div *ngIf="errorMessage" class="error-message">
+        {{errorMessage}}
+      </div>
+
+    </form>
+
+    <!-- FAQ Section -->
+    <div class="faq-section">
+      <h3>Frequently Asked Questions</h3>
+      <ul>
+        <li><strong>How long does it take to process a transaction?</strong> Transactions are usually processed within 1-3 business days.</li>
+        <li><strong>Can I cancel a transaction?</strong> Once submitted, transactions cannot be canceled.</li>
+        <li><strong>What should I do if I encounter an error?</strong> Please contact our support team for assistance.</li>
+      </ul>
+    </div>
+
+
+  </div>
+</div>
+
+
+<div class="modal-overlay" *ngIf="isModalOpen">
+  <div class="modal-dialog modal-dialog-centered">
+
+  <div class="modal-content">
+    <div class="loading-spinner" *ngIf="isLoading">
+      <p>Processing your request...</p>
+
+      <div class="spinner"></div>
+    </div>
+  </div>
+</div>
+</div>

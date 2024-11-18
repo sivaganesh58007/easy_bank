@@ -1,0 +1,177 @@
+.transaction-history-container {
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  margin-top: 50px;
+  font-size: 18px;
+}
+
+.transaction-history-container h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.filter-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 10px;
+  align-items: center;
+}
+
+
+
+.filter-group {
+  margin-bottom: 10px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.filter-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #000000;
+}
+
+.filter-group input, .filter-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #e4e4e4;
+  border-radius: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+  border: none;
+  color: white;
+  background-color: #4facfe;
+  cursor: pointer;
+  border-radius: 15px;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+}
+
+.apply-btn {
+  background-color: #134B70;
+
+}
+
+.reset-btn {
+  background-color: #134B70;
+}
+
+.transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.transaction-table th,
+.transaction-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.transaction-table th {
+  background-color: #134B70;
+  color: #fff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  border: 1px solid #fff;
+}
+
+.transaction-table tr:hover {
+  background-color: #ddd;
+}
+
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.pagination button {
+  margin: 0 5px;
+  padding: 10px 15px;
+  background-color: #134B70; /* Bootstrap primary color */
+  color: white;
+  border: none;
+  border-radius: 25px;
+  
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  background-color: #ccc; /* Grey color for disabled buttons */
+  cursor: not-allowed;
+}
+
+.pagination button.active {
+  font-weight: bold;
+  background-color: #508C9B; /* Darker shade for active page */
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .transaction-history-container {
+    font-size: 16px;
+    padding: 15px;
+  }
+
+  .filter-form {
+    flex-direction: column;
+  }
+
+  .filter-group {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .btn {
+    padding: 8px 15px;
+    font-size: 14px;
+    width: 38%;
+    margin: 5px 1%;
+  }
+  
+    
+
+
+}
+
+
+
+@media (max-width: 480px) {
+  .transaction-history-container {
+    font-size: 14px;
+  }
+
+  .filter-form {
+    gap: 5px;
+  }
+
+  .btn {
+    padding: 6px 10px;
+    font-size: 12px;
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .transaction-table th,
+  .transaction-table td {
+    font-size: 14px;
+    padding: 8px;
+  }
+}

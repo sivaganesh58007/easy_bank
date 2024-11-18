@@ -1,0 +1,59 @@
+
+
+<header>
+  <nav class="navbar">
+      <a routerLink="/user-dashboard" *ngIf="!isAuthenticated"  class="logo">Easy Bank </a>
+      <a *ngIf="isAuthenticated && role === 'user'" routerLink="/user-dashboard" class="logo">Easy Bank </a>
+      <a *ngIf="isAuthenticated && role === 'admin'" routerLink="/admin-dashboard" class="logo">Easy Bank </a>
+
+      
+        
+    <!-- Toggle Button (Hamburger Icon) -->
+    <button class="menu-toggle" (click)="toggleSidebar()">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <!-- Sidebar Menu -->
+    <div [ngClass]="{'sidebar-open': sidebarOpen}" class="sidebar">
+      <ul>
+
+
+   
+        <li *ngIf="!isAuthenticated" routerLink="/signin" (click)="selectOption()">
+          <i class="fa-solid fa-right-to-bracket"></i> Signin
+        </li>
+       
+        <li *ngIf="isAuthenticated && role === 'user'" routerLink="/user-profile" (click)="selectOption()">
+          <i class="fa-solid fa-user" style="pointer-events: none;"></i> Profile
+        </li>
+       
+        <li *ngIf="isAuthenticated && role === 'user'" routerLink="/transaction_history" (click)="selectOption()">
+          <i class="fa-solid fa-money-check-dollar"></i> Transactions
+        </li>
+        <li *ngIf="isAuthenticated && role === 'user'"  routerLink="/userticket" (click)="selectOption()">
+          <i class="fa-regular fa-comments"></i> View Tickets
+        </li>
+        <li *ngIf="isAuthenticated && role === 'user'" routerLink="/feedback" (click)="selectOption()">
+          <i class="fa-regular fa-comments"></i> Feedback
+        </li>
+        <li *ngIf="isAuthenticated && role === 'user'" routerLink="/support" (click)="selectOption()">
+          <i class="fa-solid fa-envelope"></i> Support
+        </li>
+        <li *ngIf="isAuthenticated && role === 'admin'" routerLink="/admin-dashboard" (click)="selectOption()">
+          <i class="fa-solid fa-house"></i> Admin Dashboard
+        </li>
+        <li *ngIf="isAuthenticated && role === 'admin'" routerLink="/all-users-tickets" (click)="selectOption()">
+          <i class="fa-solid fa-clipboard-question"></i> View Tickets
+        </li>
+        <li *ngIf="isAuthenticated && role === 'admin'" routerLink="/profile" (click)="selectOption()">
+          <i class="fa-solid fa-user"></i> Profile
+        </li>
+        <li *ngIf="isAuthenticated" (click)="onLogout(); selectOption()" class="logout">
+        <i class="fa-solid fa-money-check-dollar "></i> Logout
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+

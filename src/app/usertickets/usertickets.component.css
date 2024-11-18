@@ -1,0 +1,265 @@
+
+  
+  .ticket-container {
+    display: flex;
+    width: 450px;
+    background-color: #f9f9f9;
+    box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ticket-list {
+    width: 100%;
+    padding: 15px;
+    height: 90vh; /* Set a max height for the list */
+    /* overflow-y: auto; */
+    overflow: scroll;
+
+  }
+  .ticket-list::-webkit-scrollbar{
+    display: none;
+  }
+  
+
+
+  .user-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+        margin-bottom: 5px;
+    /* border-radius: 10px; */
+    color: #2f3a40;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0px 2px 4p rgba(0, 0, 0, 0.05);
+  }
+
+
+
+  
+
+  
+  .user-item:hover {
+    background-color: #e2e6ea;
+  }
+  
+  .user-item.active {
+    background-color: white;
+    color: black;
+    box-shadow: 0px 2px 6px rgba(108, 99, 255, 0.4);
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .time-status {
+    display: flex;
+    justify-content: space-between;  /* Ensures space between the time and status */
+    align-items: center;             /* Aligns them vertically in the center */
+    width: 100%;                     /* Makes sure the container takes the full width */
+}
+.message-time, .status {
+    font-size: 14px;                 /* Sets the font size */
+    color: #889399;                     /* Sets a consistent color */
+}
+
+.message-time{
+    text-align: left;
+}
+.status{
+text-align: right;
+margin-left: 120px;
+}
+  .user-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .user-name {
+    font-weight:500;
+    font-size: 16px;
+  }
+
+  
+  .user-description {
+    font-size: 15px;
+    color:  #889399;
+  }
+
+  .view-tickets-container{
+    display: flex;
+
+  }
+
+
+  /* chatting styles */
+
+/* Chat content layout */
+.chat-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  height: 89vh;
+  background-color: white;
+  border-left: 1px solid #e0e0e0;
+}
+
+/* Message header */
+.message-header {
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: #333;
+}
+
+/* Messages container */
+.messages {
+  flex-grow: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+.chat-description{
+  text-align: center;
+  font-size: 16px;
+ margin-bottom: 20px;
+}
+span{
+  color: rgb(37, 35, 35);
+  font-weight: bold;
+}
+
+.message-content p {
+  margin: 0;
+  word-wrap: break-word;
+}
+
+.emoji {
+  font-size: 1.2em;
+}
+
+/* Message input box */
+.send-message-box {
+  display: flex;
+  padding: 15px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.send-message-box input {
+  flex-grow: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: #f0f0f0;
+  margin-right: 10px;
+}
+
+.send-message-box input:focus {
+  outline: none;
+}
+
+.send-button {
+  padding: 10px 20px;
+  background-color: #134B70;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+
+/* Scroll behavior for smooth experience */
+.messages::-webkit-scrollbar{
+  display: none;
+}
+
+
+/* Responsiveness: ensures message bubbles wrap correctly */
+.message-content {
+  word-break: break-word;
+  
+}
+
+
+.received{
+  background-color: #508C9B;
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 15px;
+  color: white;
+  width:fit-content;
+  max-width: 50%;
+  justify-content: flex-end;
+  text-align: right;
+
+
+}
+
+.unread-ticket .user-name,
+.unread-ticket .user-description,
+.unread-ticket .message-time,
+.unread-ticket .status span {
+  color: rgb(7, 7, 7);
+  font-weight: bold;
+}
+
+.message-count{
+  background-color: #134B70;
+  color: white;
+  padding: 5px 8px;
+  border-radius: 40px;
+  font-size: 12px;
+  font-weight:900;
+}
+
+
+
+.sent{
+  background-color: #134B70;
+  margin-bottom: 10px;
+  padding: 11px;
+  border-radius: 15px;
+  width:fit-content;
+  max-width: 50%;
+  color: white;
+  display: flex;
+  float: right;
+  flex-direction: column;
+  /* text-align: right; */
+
+
+}
+
+
+/* #received_message{
+text-align: left;
+width: auto;
+max-width: 40%;
+background-color: red;
+
+} */
+
+#sent_message{
+  align-self: flex-end;
+
+}
+small{
+  font-size: 12px;
+  text-align: right;
+}
+
+
+.selected-ticket {
+  font-weight: bold;         /* Optional: Make the font bold */
+  border-left: 5px solid #134B70; /* Optional: Add a border to indicate selection */
+}
+
+
+
+

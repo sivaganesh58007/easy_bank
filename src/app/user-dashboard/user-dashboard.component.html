@@ -1,0 +1,46 @@
+
+
+
+<header class="hero">
+    <div class="hero-content">
+      <h1>Welcome to Easy Bank </h1>
+      <h2> {{profiledata.first_name|titlecase}}  {{profiledata.last_name|titlecase}}</h2>
+
+      <p>Your gateway to modern, reliable, and secure banking solutions.</p>
+    </div>
+  </header>
+
+
+
+  <section id="services" class="services-section">
+    <h2>Our Banking Services</h2>
+
+<!-- Account Overview -->
+<div class="dashboard">
+    <div class="dashboard-container">
+        <div class="account-overview card">
+            <h2>Account Overview</h2>
+            <p id="User_Name">User: <span>{{ profiledata.first_name }} {{ profiledata.last_name }}</span></p>
+            <p id="account-number">Account Number: <span>{{ profiledata.account_number }}</span></p>
+            <p id="balance" style="display: none;">Balance: <span id="balance-amount">0.00</span></p>
+            <button id="view-balance-btn" class="btn small" (click)="viewBalance()">View Balance</button>
+        </div>
+
+        <!-- Deposit/Withdraw Section -->
+        <div class="quick-action card">
+            <i class="fas fa-wallet icon"></i>
+            <h3>Deposit/Withdraw</h3>
+            <p>Manage your funds easily. Add or withdraw money from your account with just a click.</p>
+            <button routerLink="/deposit-withdraw" id="deposit-btn" class="action-btn">Deposit/Withdraw</button>
+        </div>
+
+        <!-- Transfer Section -->
+        <div class="quick-action card">
+            <i class="fas fa-exchange-alt icon"></i>
+            <h3>Transfer Funds</h3>
+            <p>Send money to other accounts quickly and securely.</p>
+            <button routerLink="/transfer" id="transfer-btn" class="action-btn">Transfer</button>
+        </div>
+    </div>
+</div>
+  </section>

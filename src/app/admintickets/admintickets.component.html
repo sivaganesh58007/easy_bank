@@ -1,0 +1,63 @@
+<div class="view-tickets-container">
+    <div class="ticket-container">
+      <div class="ticket-list">
+        <div class="user-item active" *ngFor="let ticket of tickets"
+        [ngClass]="{'selected-ticket':Ticketselect?.ticket_id === ticket.ticket_id,
+                        'unread-ticket': ticket.messageCount>0
+
+        }"
+        (click)="selectTicket(ticket)" >
+          <div class="user-info">
+            <div class="user-details">
+              <div class="ticket-uerName d-flex align-items-center justify-content-between">
+                <div class="use-name">{{ ticket.ticket|titlecase }}</div>
+                <div><span>{{ticket.first_name|titlecase}} {{ticket.last_name|titlecase}}</span></div>
+              </div>
+              <div class="user-description">{{ ticket.description }}</div>
+              <div class="time-status">
+                <div class="message-time">{{ ticket.updated_at|date: 'MM-dd-yyyy, h:mm a'}}</div>
+                <div class="status">Status: <span>{{ ticket.status }}</span></div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="ticket.messageCount>0" class="message-count">{{ticket.messageCount}}</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="chat-content" *ngIf="selectedTicket">
+        
+        <div class="messages" #chatContainer>
+          <div *ngFor="let message of messages">
+            <!-- Wrapper for received messages -->
+            <div *ngIf="message.sender_id != currentUserId" class="message-chat received">
+              <div class="message-content" id="received_message">
+                <p>{{ message.message }}</p>
+
+                <!-- <p>{{message.sender_id}}</p> -->
+              </div>
+              <small >{{message.sent_at}}</small>
+            </div>
+        
+            <!-- Wrapper for sent messages -->
+            <div *ngIf="message.sender_id == currentUserId" class="message-chat sent">
+              <div class=" message-content" id="sent_message">
+                <p>{{ message.message }}</p>
+                <!-- <p> {{currentUserId}}</p> -->
+
+               
+              </div>
+              <small>{{message.sent_at}}</small>
+            </div>
+          </div>
+        </div>
+        <!-- Message input box -->
+        <div class="send-message-box">
+          <input [(ngModel)]="newMessage" type="text" placeholder="Send a message" />
+          <button class="send-button" (click)="sendMessage()">Send</button>
+        </div>
+      </div>
+
+    </div>

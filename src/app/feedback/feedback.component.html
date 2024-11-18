@@ -1,0 +1,43 @@
+<div class="feedback-full-container">
+  <div class="feedback-form">
+    <div class="feedback-subform">
+          <!-- Header -->
+    <div class="feedback-header">
+      We want your opinion!
+    </div>
+    
+    <!-- Feedback Content -->
+    <div class="feedback-content">
+      <p>How satisfied are you with our service? *</p>
+      
+      <!-- Emoji Rating -->
+      <div class="emoji-container">
+  
+        <div>
+          <span class="emoji" (click)="selectEmoji(1)" [class.selected]="selectedEmoji === 1">😞</span>
+  
+        </div>
+        <span class="emoji" (click)="selectEmoji(2)" [class.selected]="selectedEmoji === 2">😕</span>
+        <span class="emoji" (click)="selectEmoji(3)" [class.selected]="selectedEmoji === 3">😐</span>
+        <span class="emoji" (click)="selectEmoji(4)" [class.selected]="selectedEmoji === 4">😊</span>
+        <span class="emoji" (click)="selectEmoji(5)" [class.selected]="selectedEmoji === 5">😁</span>
+        
+      </div>
+     
+  
+  
+      
+        <textarea [(ngModel)]="comment" class="feedback-textarea" placeholder="Post your comments here"></textarea>
+      <!-- Continue Button -->
+      <button class="continue-button" (click)="submitFeedback()">Continue</button>
+      
+      <!-- Powered By -->
+      <div class="powered-by">
+        Powered by Siva Ganesh
+      </div>
+    </div>
+    </div>
+  
+  </div>
+  
+</div>

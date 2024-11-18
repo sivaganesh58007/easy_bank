@@ -1,0 +1,159 @@
+.profile-container {
+  width: 90%;
+  max-width: 1100px;
+  background-color: #fff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 50px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+  max-height: 100%;
+  margin-top:20px;
+
+}
+
+.profile-header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-left: 10px;
+}
+
+.profile-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.profile-pic-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.edit-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: white;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.profile-form {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 25px;
+  font-size: 1rem;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  border-bottom: 2px solid #ff6b6b;
+}
+
+.save-btn,
+.edit-button {
+  background-color: #134B70;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+
+
+.button-container {
+  display: flex;
+  gap: 300px;
+}
+
+@media (max-width: 768px) {
+  .profile-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-header h1 {
+    font-size: 2rem;
+    margin-top: 20px;
+  }
+
+  .profile-pic-container {
+    width: 150px;
+    height: 150px;
+  }
+
+  .profile-form {
+    margin: 0;
+  }
+  .form-group input {
+    padding: 10px;
+  }
+
+  .save-btn,
+  .edit-button {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .profile-container {
+    padding: 20px;
+  }
+
+  .profile-pic-container {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-content {
+    gap: 10px;
+  }
+
+  .form-group input {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .save-btn,
+  .edit-button {
+    font-size: 0.8rem;
+    padding: 6px;
+  }
+}

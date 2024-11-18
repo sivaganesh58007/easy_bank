@@ -1,0 +1,101 @@
+<div class="container">
+  <h1>Admin Dashboard</h1>
+  <div id="user-list" class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Users</h2>
+    <div class="button-container">
+      <button (click)="openformModal()" class="btn add-user-btn p-2">Add User</button>
+    </div>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Date of Birth</th>
+        <th>Account Number</th> 
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.first_name }}</td>
+        <td>{{ user.last_name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phone_number }}</td>
+        <td>{{ user.date_of_birth }}</td>
+        <td>{{ user.account_number || 'N/A' }}</td>
+        <!-- <button>get</button> -->
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="modal" *ngIf="showformModal">
+
+<form [formGroup]="userForm" (ngSubmit)="otpsubmit()">
+  <div class="close-container d-flex  justify-content-end w-100">
+    <button class="btn-close"  id= "close-mark" (click)="closeformModal()"></button>
+  </div>
+
+<div class="form-group">
+  <label for="firstName">First Name</label>
+  <input id="first_name" formControlName="first_name" type="text" />
+</div>
+<div class="form-group">
+  <label for="lastName">Last Name</label>
+  <input id="last_name" formControlName="last_name" type="text" />
+</div>
+<div class="form-group">
+  <label for="email">Email</label>
+  <input id="email" formControlName="email" type="email" (blur)="onEmailBlur()" />
+  <span *ngIf="emailError">{{ emailError }}</span>
+</div>
+<div class="form-group">
+  <label for="phoneNumber">Phone Number</label>
+  <input id="phone_number" formControlName="phone_number" type="text" />
+  <span *ngIf="userForm.get('phone_number')?.errors?.['pattern']">Please enter a 10-digit phone number.</span>
+</div>
+<div class="form-group">
+  <label for="date_of_birth">Date of Birth</label>
+  <input id="date_of_birth" formControlName="date_of_birth" type="date" />
+</div>
+<div class="form-group">
+  <label for="password">Password</label>
+  <input id="password" formControlName="password" type="password" />
+  <span *ngIf="userForm.get('password')?.errors?.['passwordLength']">Password must be between 8 and 16 characters.</span>
+  <span *ngIf="userForm.get('password')?.errors?.['passwordComplexity']">Password must contain at least one numeric character and one symbol.</span>
+</div>
+<button type="submit">Register</button>
+
+
+<!-- Error message area -->
+<div *ngIf="formError" class="error-message">
+    {{ formError }}
+  </div>
+
+
+
+
+</form>
+
+  </div>
+
+
+
+  <div class="modal" *ngIf="showModal">
+    <div class="modal-content">
+      <div class="close-container d-flex  justify-content-end w-100">
+        <button class="btn-close"  id= "close-mark" (click)="closeModal()"></button>
+      </div>  
+      <i class="fa-regular fa-envelope email-icon email-icon"></i>
+      <form [formGroup]="otpForm" (ngSubmit)="addUser()">
+        <input formControlName="otp" placeholder="Enter OTP" type="text" />
+  
+        <button type="submit">Verify OTP</button>
+        <!-- <p>OTP expires in: {{ displayTime }}</p> -->
+        <div class="error-message" *ngIf="formError">{{formError}}</div>
+      </form>
+  
+    </div>
+    </div>

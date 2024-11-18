@@ -1,0 +1,69 @@
+<div class="signup-wrapper">
+
+
+<form [formGroup]="signupForm" (ngSubmit)="otpsubmit()">
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input id="first_name" formControlName="first_name" type="text" />
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input id="last_name" formControlName="last_name" type="text" />
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input id="email" formControlName="email" type="email" (blur)="onEmailBlur()" />
+    <span *ngIf="emailError">{{ emailError }}</span>
+  </div>
+  <div class="form-group">
+    <label for="phoneNumber">Phone Number</label>
+    <input id="phone_number" formControlName="phone_number" type="text" />
+    <span *ngIf="signupForm.get('phone_number')?.errors?.['pattern']">Please enter a 10-digit phone number.</span>
+  </div>
+  <div class="form-group">
+    <label for="date_of_birth">Date of Birth</label>
+    <input id="date_of_birth" formControlName="date_of_birth" type="date" />
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input id="password" formControlName="password" type="password" />
+    <span *ngIf="signupForm.get('password')?.errors?.['passwordLength']">Password must be between 8 and 16 characters.</span>
+    <span *ngIf="signupForm.get('password')?.errors?.['passwordComplexity']">Password must contain at least one numeric character and one symbol.</span>
+  </div>
+  <button type="submit">Register</button>
+  <div class="sigin">
+    <div>Already have account?</div>
+    <a id="forget" routerLink="/signin" >signin</a>
+
+  </div>
+
+
+  <!-- Error message area -->
+  <div *ngIf="formError" class="error-message">
+      {{ formError }}
+    </div>
+
+
+
+
+</form>
+
+
+</div>
+
+
+<div class="modal" *ngIf="showModal">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+
+    <i class="fa-regular fa-envelope email-icon email-icon"></i>
+    <form [formGroup]="otpForm" (ngSubmit)="onSubmit()">
+      <input formControlName="otp" placeholder="Enter OTP" type="text" />
+
+      <button type="submit">Verify OTP</button>
+      <!-- <p>OTP expires in: {{ displayTime }}</p> -->
+      <div class="error-message" *ngIf="formError">{{formError}}</div>
+    </form>
+
+  </div>
+  </div>

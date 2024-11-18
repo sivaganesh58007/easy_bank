@@ -1,0 +1,23 @@
+<p>http works!</p>
+<button (click)="getData()">get users</button>
+<div *ngIf="users">
+    <table>
+        <th>first_name</th>
+        <th>last_name</th>
+        <th>email</th>
+        <th>phone_number</th>
+        
+        <tr *ngFor="let data of users">
+            <td>{{data.first_name}}</td>
+            <td>{{data.last_name}}</td>
+
+            <td>{{data.email}}</td>
+            <td>{{data.phone_number}}</td>
+
+
+
+
+        </tr>
+        </table>
+</div>
+

@@ -1,0 +1,192 @@
+.support-body {
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  background-image: url('../../assets/images/support.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 70px;
+  text-align: center;
+  opacity: 0.8;
+}
+
+h1 {
+  color: #EEEEEE;
+  font-size: 50px;
+  margin: 0;
+}
+
+/* Contact center and individual contact info */
+.contact-center {
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: -50px;
+  z-index: 10;
+  position: relative;
+}
+
+.contact-info {
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.contact-info i {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.contact-info h4 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.contact-info p {
+  font-size: 16px;
+  color: #134B70;
+}
+
+/* Help button styling */
+.help-button, .options-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #333;
+  border: 1px solid rgb(255, 255, 255);
+  padding: 15px;
+  border-radius: 15px;
+  width: 720px;
+  margin: 10px auto;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  gap:30px
+}
+
+span {
+  margin-left: 10px;
+}
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  max-width: 720px;
+  text-align: center;
+}
+
+.option {
+  margin: 5px 0;
+  padding: 10px;
+  background-color: #ffffff;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  transition: background-color 0.3s;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  text-align: center;
+}
+
+.option:hover {
+  background-color: #e0e0e0;
+}
+
+.content-display {
+  padding: 15px;
+  background-color: #EEEEEE;
+  border-left: 5px solid #d1ccc3;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Query input container */
+.query-input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 600px;
+  margin: 20px auto;
+  border: 1px solid rgb(255, 255, 255);
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.query-input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+.send-btn {
+  background-color: #134B70;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.message {
+  text-align: center;
+  margin-top: 10px;
+  color: rgb(0, 204, 255);
+  font-size: 16px;
+}
+
+/* Query button */
+.query-button {
+  padding: 8px 15px;
+  border-radius: 10px;
+  background-color: #134B70;
+  color: white;
+  border: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header {
+      padding: 40px;
+  }
+
+  h1 {
+      font-size: 28px;
+  }
+
+  .contact-center {
+      padding: 10px;
+  }
+
+  .contact-info {
+      padding: 10px;
+      margin-bottom: 15px;
+  }
+
+  .contact-info p {
+      font-size: 14px;
+  }
+
+  .help-button, .options-container, .query-input-container {
+      width: 100%;
+      font-size: 1rem;
+      padding: 10px;
+  }
+
+  .option {
+      font-size: 16px;
+      padding: 8px;
+  }
+
+  .content-display {
+      font-size: 14px;
+  }
+}

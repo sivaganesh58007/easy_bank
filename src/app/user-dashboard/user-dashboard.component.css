@@ -1,0 +1,104 @@
+
+a {
+    text-decoration: none;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #508C9B;
+    padding: 60px 20px;
+    text-align: center;
+    color: white;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+
+
+.services-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.services-section h2 {
+    font-size: 36px;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+
+
+
+.dashboard-container {
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+
+    flex-wrap: wrap; /* Makes the layout responsive */
+    max-width: 100%;
+}
+
+
+
+.card {
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 350px; /* Set a fixed width for uniformity */
+    text-align: left;
+}
+
+.icon {
+    font-size: 2em;
+    color: #134B70;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #333;
+}
+
+
+.card p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* Button Styling */
+.btn, .action-btn {
+    background-color: #134B70;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.btn:hover, .action-btn:hover {
+    background-color: #508C9B;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}

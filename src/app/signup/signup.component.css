@@ -1,0 +1,171 @@
+/* Wrapper */
+.signup-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    background-color: #f4f4f9;
+  }
+  
+  /* Form container */
+  form {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  /* Form group */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    margin-bottom: 6px;
+    color: #333333;
+    font-size: 0.9rem;
+
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="date"],
+  input[type="password"] 
+  {
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #333333;
+  }
+  
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="date"]:focus,
+  input[type="password"]:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.2);
+  }
+  
+
+
+  .close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.2rem;
+    color: #666;
+    cursor: pointer;
+  }
+  /* Error messages */
+  .error-message {
+    color: #ff0800;
+    /* margin-top: 15px;
+     */
+     text-align: center;
+  }
+  
+  
+  span {
+    color: #ff0800;
+    font-size: 0.9rem;
+    margin-top: 5px;
+  }
+  
+  /* Submit button */
+  button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #134B70;
+    border: none;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+
+
+
+
+
+
+    .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-content {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px; 
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* position: relative; */
+  }
+
+  .email-icon{
+    font-size: 100px;
+    color: #508C9B;
+    margin-bottom: 5px;
+  }
+
+  .modal-content input{
+    margin-bottom: 1rem;
+
+
+  }
+  
+  
+
+
+
+  /* Signin link */
+  .sigin {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #666666;
+  }
+ 
+  
+  .sigin a {
+    color: #134B70;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .sigin a:hover {
+    text-decoration: underline;
+  }
+  
+
+
+  #date_of_birth {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: hsl(0, 0%, 0%);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+

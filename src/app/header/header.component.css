@@ -1,0 +1,72 @@
+
+
+
+.fa-solid{
+    font-size: 25px;
+}
+
+
+/* General styles for the navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+
+  padding:  18px;
+  background-color:#134B70;
+  color: #fff;
+}
+
+.logo {
+  font-size: 24px;
+  text-decoration: none;
+  color: white;
+
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -250px; 
+  width: 250px;
+  height: 100%;
+  background-color: #134B70;
+  padding: 20px;
+  transition: 0.3s ease;
+  z-index: 1000;
+  margin-top: 45px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 10px;
+  cursor: pointer;
+  
+}
+
+.sidebar ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+ul li:hover{
+    background-color:#508C9B;
+}
+
+.sidebar-open {
+  right: 0; /* Slide the sidebar into view */
+}
+
+/* Toggle button */
+.menu-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}

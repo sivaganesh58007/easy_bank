@@ -1,0 +1,84 @@
+<!-- Header -->
+
+<div class="support-body">
+    <div class="header">
+        <h1>Talk to Us - Bank Customer Service</h1>
+    </div>
+
+    <!-- Contact Center Section -->
+    <div class="container contact-center">
+
+        <div class="row">
+            <!-- Personal Banking -->
+            <div class="col-md-4 contact-info">
+                <i class="fas fa-users"></i>
+                <h4>Personal Banking (24X7)</h4>
+                <p><strong>Toll Free Number (Domestic):</strong><br>1800 5700 / 1800 5000</p>
+                <p><strong>For Domestic Customers Calling From Abroad:</strong><br>+91 79-66296009</p>
+            </div>
+
+            <!-- Missed Call Services -->
+            <div class="col-md-4 contact-info">
+                <i class="fas fa-phone-alt"></i>
+                <h4>Missed Call Services</h4>
+                <p><strong>Balance Inquiry:</strong> 8468001111</p>
+                <p><strong>Mini Statement:</strong> 8468001122</p>
+                <p><strong>Central Registry Toll Free Number for CKYC ID:</strong> 7799022129</p>
+            </div>
+
+            <!-- For PMJDY and FI Schemes -->
+            <div class="col-md-4 contact-info">
+                <i class="fa-solid fa-person-military-to-person"></i>
+                <h4>Email Support</h4>
+                <p><strong>Email </strong>:sivaganesh58007gmail.com</p>
+                <p><strong>Timing:</strong> (06:00am to 10:00pm)</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="center-container">
+        <div>
+            <div class="help-button" (click)="toggleOptions()">
+                <i class="fa-regular fa-user"></i>
+                <span>How may I help you?</span>
+            </div>
+
+            <!-- Options Container -->
+            <div class="options-container" *ngIf="showOptions">
+                <div class="option" (click)="selectMainOption('Debit')" >Debit Problem</div>
+                <div class="option" (click)="selectMainOption('Credit')">Credit Problem</div>
+                <div class="option" (click)="selectMainOption('Withdraw')">Withdraw Issue</div>
+                <div class="option" (click)="selectMainOption('Deposit')">Deposit Issue</div>
+            </div>
+
+            <div class="sub-options-container" *ngIf="selectedMainOption && !solutionText">
+                <div class="option" *ngFor="let subOption of subOptions" (click)="showSolution(subOption)">
+                    {{ subOption.question }}
+                </div>
+            </div>
+
+            <div class="content-display" *ngIf="solutionText">
+                <p>{{ solutionText }} {{raiseTicket}}</p>
+                <button class="query-button" (click)="raiseQuery()">Raise Query</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="raise-ticket-container" *ngIf="isDisplay">
+
+
+    <div class="query-input-container">
+        
+        <input type="text"  class="query-input" placeholder="Raise query here" [(ngModel)]="queryDescription" />
+        <button class="send-btn" (click)="sendTicket()" *ngIf="isDisplay">
+            <i class="fa fa-paper-plane"></i>
+        </button>
+    </div>
+    <div *ngIf="message" class="message">{{ message }}</div>
+
+    </div>
+    
+
+
+</div>
