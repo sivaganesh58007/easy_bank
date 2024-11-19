@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Withdraw - Easy Bank</title>
+    <link rel="stylesheet" href="forms.css">
+</head>
+<body>
+    <header>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <h1>Easy Bank - Withdraw</h1>
+    </header>
+    <nav id="sidebar" class="sidebar">
+        <div class="close-btn" onclick="toggleMenu()">&times;</div>
+        <ul>
+            <li><a href="profile.html">Profile Details</a></li>
+            <li><a href="deposit.html">Deposit</a></li>
+            <li><a href="withdraw.html">Withdraw</a></li>
+            <li><a href="transactions.html">Transaction History</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="logout.html">Logout</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="form-section">
+            <h2>Withdraw Funds</h2>
+            <form id="withdraw-form">
+                <div class="form-group">
+                    <label for="account-number">Account Number:</label>
+                    <input type="text" id="account-number" name="account-number" value="1234567890" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="account-holder">Account Holder:</label>
+                    <input type="text" id="account-holder" name="account-holder" value="John Doe" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="withdraw-amount">Amount to Withdraw:</label>
+                    <input type="number" id="withdraw-amount" name="withdraw-amount" placeholder="Enter amount" required>
+                </div>
+                <button type="submit">Withdraw</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Easy Bank. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel ="stylesheet" href="chatting.css">
+</head>
+<body>
+    <div class="chat-content">
+        <!-- Chat header displaying the current user they are chatting with -->
+        <div class="message-header">
+            <div class="user-chatting-with">{{ selectedUser }}</div>
+        </div>
+    
+        <!-- Messages -->
+        <div class="messages">
+            <!-- Received message (aligned left) -->
+            <div class="message received">
+                <div class="message-content">
+                    <p>Hey, should we move the meeting to next week?</p>
+                </div>
+            </div>
+            
+            <!-- Sent message (aligned right) -->
+            <div class="message sent">
+                <div class="message-content">
+                    <p>Sure, let me know what time works for you. 😊</p>
+                </div>
+            </div>
+            
+            <!-- Received message (aligned left) -->
+            <div class="message received">
+                <div class="message-content">
+                    <p>How about Thursday?</p>
+                </div>
+            </div>
+    
+            <!-- Sent message (aligned right) -->
+            <div class="message sent">
+                <div class="message-content">
+                    <p>Sounds good! 🙌</p>
+                </div>
+            </div>
+    
+            <!-- More messages as needed -->
+        </div>
+        
+        <!-- Message input box -->
+        <div class="send-message-box">
+            <input type="text" placeholder="Send a message" />
+            <button class="send-button">Send</button>
+        </div>
+    </div>
+    
+    
+</body>
+</html>
