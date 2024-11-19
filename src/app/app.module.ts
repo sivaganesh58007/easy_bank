@@ -27,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { UrlComponent } from './url/url.component';
+import { ServerErrorComponent } from './server-error/server-error.component';
 
 
 
@@ -53,7 +54,7 @@ const routes: Routes = [
   {path:'feedback',component:FeedbackComponent},  
   {path:'all-users-tickets',component:AdminticketsComponent},
   // Add other routes as needed
-  { path: '**', redirectTo: '/home' } // Wildcard route for unknown paths
+  { path: '**', component:ServerErrorComponent } // Wildcard route for unknown paths
 ];
 
 @NgModule({
@@ -76,6 +77,7 @@ const routes: Routes = [
     UserticketsComponent,
     AdminticketsComponent,
     UrlComponent,
+    ServerErrorComponent,
   ],
   imports: [
     BrowserModule,

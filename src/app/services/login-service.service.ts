@@ -77,6 +77,8 @@ apiUrl="http://127.0.0.1:5000"
   isLoggedIn():boolean{
     return !(!sessionStorage.getItem('token'))
   }
+
+  
   navigateToRole():void{
     const role=sessionStorage.getItem('role')
     if (role === 'admin') {
