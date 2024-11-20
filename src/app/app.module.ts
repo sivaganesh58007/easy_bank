@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { HttpComponent } from './http/http.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -26,7 +25,6 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
-import { UrlComponent } from './url/url.component';
 import { ServerErrorComponent } from './server-error/server-error.component';
 
 
@@ -61,7 +59,6 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     HeaderComponent,
-    HttpComponent,
     SignupComponent,
     HomeComponent,
     FooterComponent,
@@ -76,7 +73,6 @@ const routes: Routes = [
     FeedbackComponent,
     UserticketsComponent,
     AdminticketsComponent,
-    UrlComponent,
     ServerErrorComponent,
   ],
   imports: [

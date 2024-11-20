@@ -39,11 +39,9 @@ displayTime: string = '05:00';
 
   ngOnInit() {
     if(this.loginService.isLoggedIn()){
-      console.log('ENTERED')
       this.loginService.navigateToRole()
       
     }
-    console.log('Login INIT');
     
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
