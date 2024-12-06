@@ -16,6 +16,8 @@ from datetime import timedelta
 import uuid
 from app.appMain.dto.user import UserDto
 from werkzeug.security import generate_password_hash,check_password_hash
+import os
+from werkzeug.utils import secure_filename
 
 
 
@@ -27,6 +29,12 @@ profile_blueprint=UserDto.profileapi
 signupotp_blueprint=UserDto.signupotpapi
 
 email_regex = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+
+
+
+
+UPLOAD_FOLDER = '/home/sivaganesh/Downloads/EasyBank/FrontEnd/src/assets/images'
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg' ,'webp','avif'}
 
 
 
@@ -159,7 +167,6 @@ class Login(Resource):
                 }, 200
             else:
                 return {'message': 'Role not recognized'}, 401
-
         except Exception as e:
             return {'message': 'An error occurred during login', 'error': str(e)}, 500
 
@@ -172,18 +179,17 @@ class CheckEmail(Resource):
         try:
             data = request.get_json()
             email = data.get('email')
-
             if not email:
                 return {'message': 'Email is required'}, 400
-
             if not email_pattern.match(email):
                 return {'message': 'Invalid email format'}, 400
-
             user_exists = User.query.filter_by(email=email).first() is not None
-
             return {'exists': user_exists}, 200
         except Exception as e:
             return {'message': 'An error occurred while checking the email', 'error': str(e)}, 500
+        
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
 @profile_blueprint.route('', methods=['GET', 'PUT'])
@@ -205,7 +211,8 @@ class Profile(Resource):
                 'account_number': user.account_number,
                 'date_of_birth': user.date_of_birth.strftime('%Y-%m-%d') if user.date_of_birth else None, 
                 'address': user.address,
-                'user_id': str(user.user_id)
+                'user_id': str(user.user_id),
+                'profile_pic': user.profile_pic  # Include profile picture path
             }
 
             return profile_data, 200
@@ -221,11 +228,25 @@ class Profile(Resource):
 
             user = User.query.get(user_id)
 
+        
             if not user:
                 return {'message': 'User not found'}, 404
+            if 'profile_pic' in request.files:
+                file = request.files['profile_pic']
+                if file and allowed_file(file.filename):
+                    # Save the file to the upload folder
+                    filename = secure_filename(file.filename)
+                    filepath = os.path.join(UPLOAD_FOLDER, filename)
+                    file.save(filepath)
 
-            data = request.get_json()
-            current_date = datetime.now().date()
+                    # Update the profile_pic field in the database
+                    user.profile_pic = f"{filename}"
+                else:
+                    return {'message': 'Invalid file type. Allowed types: png, jpg, jpeg, webp, avif'}, 400
+
+
+            data = request.form
+            current_date = datetime.now().date()    
 
             if data['date_of_birth'] >= str(current_date):
                 return {"message": "Invalid date of birth"}, 400
@@ -239,7 +260,10 @@ class Profile(Resource):
 
             db.session.commit()
 
-            return {'message': 'Profile updated successfully'}, 200
+            return {
+            'message': 'Profile updated successfully',
+            'profile_pic': user.profile_pic  # Return the updated profile picture URL
+        }, 200
         except Exception as e:
             return {'message': 'An error occurred while updating profile', 'error': str(e)}, 500
 

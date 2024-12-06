@@ -150,7 +150,13 @@ class ResetPassword(Resource):
 
             user.password = generate_password_hash(new_password)
             db.session.commit()
-
             return {"message": "Password reset successfully"}, 200
         except Exception as e:
             return {"message": f"An error occurred: {str(e)}"}, 500
+
+
+
+
+
+
+
