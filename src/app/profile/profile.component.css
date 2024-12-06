@@ -4,11 +4,11 @@
   background-color: #fff;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  padding: 50px;
+  padding: 30px;
   margin: auto;
   font-family: Arial, sans-serif;
   max-height: 100%;
-  margin-top:20px;
+  margin-top:5px;
 
 }
 
@@ -33,6 +33,12 @@
   height: 200px;
   border-radius: 50%;
   overflow: hidden;
+}
+ 
+.profile-pic-main{
+  display: flex;
+  justify-content: center;
+
 }
 
 .profile-pic {
@@ -64,7 +70,7 @@
 
 .form-group input {
   width: 100%;
-  padding: 25px;
+  padding: 15px;
   font-size: 1rem;
   border: none;
   border-bottom: 2px solid #ccc;
@@ -89,7 +95,10 @@
   width: 100%;
   transition: background-color 0.3s ease;
 }
-
+i{
+  font-size: 40px;
+  cursor: pointer;
+}
 
 
 .button-container {

@@ -3,16 +3,33 @@
     <div class="profile-header">
       <h1>Profile</h1>
     </div>
-  
     <div class="profile-content">
-      <div class="profile-pic-container">
-        <img src="../../assets/images/profile.png" alt="Profile Picture" class="profile-pic">
-        <div class="edit-icon">
-          <i class="fa fa-camera"></i>
-        </div>
-      </div>
+     
   
-      <form class="profile-form" [formGroup]="profileForm" *ngIf="isEditing" >
+      <form class="profile-form" [formGroup]="profileForm"  >
+        <div class="profile-pic-main">
+          <div class="profile-pic-container">
+            <!-- <img src="ticket.png" alt=""> -->
+            
+            <img [src]="'../../assets/images/'+profilePicUrl" alt="Profile Picture" class="profile-pic" />
+            <div class="edit-icon" *ngIf="isEditing">
+              <label for="profile-pic-upload">
+                <i class="fa fa-camera"></i>
+              </label>
+    
+              <input
+                type="file"
+                id="profile-pic-upload"
+                (change)="onProfilePicChange($event)"
+                accept="image/png, image/jpeg, image/jpg, image/webp, image/avif"
+                style="display: none;"
+              />
+            </div>
+          </div>
+
+        </div>
+    
+        <!-- <h1>{{profilePicUrl}}</h1> -->
         <div class="form-group">
           <input type="text" id="first_name" formControlName="first_name" name="first_name" class="profile-input"    />
         </div>

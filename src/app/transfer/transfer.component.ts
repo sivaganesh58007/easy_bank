@@ -21,15 +21,6 @@ export class TransferComponent implements OnInit {
   errorMessage: string=''
   isModalOpen = false;
 
-
-
-
-
-  
-  
-
-  
-
   constructor(private fb: FormBuilder, private transferService: TransferService,  private toastr: ToastrService // Inject ToastrService
   ) {
     this.transferForm = this.fb.group({
@@ -63,30 +54,17 @@ export class TransferComponent implements OnInit {
       return;
     }
     else{
-     
-      
-
       this.errorMessage=''
       this.isModalOpen=true
       this.isLoading=true
-
-
-
-      setTimeout(()=>{
+  setTimeout(()=>{
         this.onSubmit()
       },3000)
     }
-
-
-
-  
-     }
-
+}
+    
     
   onSubmit() {
-  
-
-
       this.transferService.transferMoney(this.transferForm.value).subscribe(response=>{
                     this.isLoading = false;
                     this.isModalOpen=false
