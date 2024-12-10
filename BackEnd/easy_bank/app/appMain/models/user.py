@@ -25,8 +25,7 @@ class User(db.Model):
 
     
     status = db.relationship('Status', back_populates='users')
-    roles = db.relationship('Role', back_populates='users')  # Singular 'role' on the user side
-
+    roles = db.relationship('Role', back_populates='users')  
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)
 

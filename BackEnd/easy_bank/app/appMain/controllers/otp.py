@@ -71,7 +71,7 @@ class SendOtp(Resource):
     def send_email(self, email, otp_code):
         try:
             sender_email = "lsoneproject@gmail.com"
-            app_password = "kpme ktaz mdhk nhyi"
+            app_password = "kqcp nwfl dwsc whte"
 
             subject = "Your OTP Code for Password Reset"
             body = f"""

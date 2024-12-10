@@ -1,7 +1,7 @@
 from flask import Blueprint
 from flask_restx import Api
 from app.appMain.controllers.user import (signup_blueprint,loginapi_blueprint,checkemail_blueprint,profile_blueprint,signupotp_blueprint)
-from app.appMain.controllers.admin import(getdetails_api_blueprint,adduser_api_blueprint)
+from app.appMain.controllers.admin import(getdetails_api_blueprint,adduser_api_blueprint,search_api_blueprint)
 from app.appMain.controllers.transaction import(withdraw_blueprint,deposite_blueprint,transfer_blueprint,transactionhistory_blueprint,
                                                 accountdetails_blueprint,balance_blueprint)
 from app.appMain.controllers.otp import(sendotp_blueprint,verifyotp_blueprint,reset_password_blueprint)
@@ -32,6 +32,7 @@ api.add_namespace(verifyotp_blueprint)
 api.add_namespace(reset_password_blueprint)
 api.add_namespace(signupotp_blueprint)
 api.add_namespace(send_mail_blueprint)
+api.add_namespace(search_api_blueprint)
 
 
 

@@ -216,7 +216,7 @@ class MessageResource(Resource):
 def send_email_notification(email, main_ticket, description):
     try:
         sender_email = "lsoneproject@gmail.com"
-        app_password = "kpme ktaz mdhk nhyi"
+        app_password = "kqcp nwfl dwsc whte"
         subject = f"New Message on {main_ticket}"
         body = f"""
         Hello,

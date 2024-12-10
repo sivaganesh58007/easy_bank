@@ -6,5 +6,6 @@ class AdminDto:
     adduserapi=Namespace('adduser', description='api to add new user')
     # admin_profile_api=Namespace('admin-profile'),description='api to get admin profile'
     deleteuserapi=Namespace('delteuser',description='api to delete user')
+    searchuserapi=Namespace('search',description='api to search user')
 
 

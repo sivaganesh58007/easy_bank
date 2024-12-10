@@ -212,7 +212,7 @@ class Profile(Resource):
                 'date_of_birth': user.date_of_birth.strftime('%Y-%m-%d') if user.date_of_birth else None, 
                 'address': user.address,
                 'user_id': str(user.user_id),
-                'profile_pic': user.profile_pic  # Include profile picture path
+                # 'profile_pic': user.profile_pic  # Include profile picture path
             }
 
             return profile_data, 200
@@ -231,18 +231,17 @@ class Profile(Resource):
         
             if not user:
                 return {'message': 'User not found'}, 404
-            if 'profile_pic' in request.files:
-                file = request.files['profile_pic']
-                if file and allowed_file(file.filename):
-                    # Save the file to the upload folder
-                    filename = secure_filename(file.filename)
-                    filepath = os.path.join(UPLOAD_FOLDER, filename)
-                    file.save(filepath)
+            # if 'profile_pic' in request.files:
+            #     file = request.files['profile_pic']
+            #     if file and allowed_file(file.filename):
+            #         filename = secure_filename(file.filename)
+            #         filepath = os.path.join(UPLOAD_FOLDER, filename)
+            #         file.save(filepath)
 
-                    # Update the profile_pic field in the database
-                    user.profile_pic = f"{filename}"
-                else:
-                    return {'message': 'Invalid file type. Allowed types: png, jpg, jpeg, webp, avif'}, 400
+            #         # Update the profile_pic field in the database
+            #         user.profile_pic = f"{filename}"
+            #     else:
+            #         return {'message': 'Invalid file type. Allowed types: png, jpg, jpeg, webp, avif'}, 400
 
 
             data = request.form
@@ -287,30 +286,25 @@ class SignupOtp(Resource):
 
             otp_code = generate_otp()
             expires_at = datetime.now() + timedelta(minutes=5) 
-
             otp_entry = OTP.query.filter_by(email=email).first()
             if otp_entry:
                 db.session.delete(otp_entry)
                 db.session.commit()
-
             new_otp = OTP(email=email, otp=otp_code, expires_at=expires_at)
             db.session.add(new_otp)
             db.session.commit()
-
             if self.send_email(email, otp_code):
                 return {"message": "OTP sent successfully"}, 200
         except Exception as e:
             return {'message': 'An error occurred while generating OTP', 'error': str(e)}, 500
-
     def send_email(self, email, otp_code):
         try:
             sender_email = "lsoneproject@gmail.com"
-            app_password = "kpme ktaz mdhk nhyi" 
-
+            app_password = "kqcp nwfl dwsc whte" 
             subject = "Welcome to Our Easy Bank! Here’s Your OTP Code"
             body = f"""
             Hello,
-
+        
             Thank you for signing up with us! To complete your registration, please use the OTP code provided below:
 
             OTP Code: {otp_code}
@@ -324,7 +318,6 @@ class SignupOtp(Resource):
             Best regards,
             Easy Bank Team
             """
-
             msg = MIMEMultipart()
             msg['From'] = sender_email
             msg['To'] = email
@@ -335,7 +328,6 @@ class SignupOtp(Resource):
                 server.starttls()
                 server.login(sender_email, app_password)
                 server.send_message(msg)
-
             return True
         except Exception as e:
             return False
