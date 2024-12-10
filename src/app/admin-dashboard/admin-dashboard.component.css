@@ -8,8 +8,113 @@
     max-width: 400px;
     width: 100%;
   }
-  
-  /* Form group */
+
+  .search i{
+    font-size: 25px;
+    background-color: #134B70;
+    padding: 12px 8px;
+    color:white;
+  }
+#search{
+    border: none;
+    outline: none;
+}
+#search:focus{
+  border: none;
+  outline: none;
+}
+
+
+
+#error-message{
+  color: red;
+
+}
+
+.users {
+  /* max-width: 900px; */
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.header {
+  position: fixed;
+  top: 60px;
+  left: 60;
+  width: 100%;
+  background-color: #fff;
+  z-index: 1000; 
+  padding: 10px 0; 
+}
+
+
+
+
+
+#user-list {
+  padding-top: 20px;
+  margin-top: 20px;
+  max-width: 900px; 
+  margin: auto;
+  /* Adjust as needed to create spacing for the content */
+}
+
+/* Add spacing to the content below header */
+.result {
+  padding-top: 20px; /* Adjust to ensure content isn't hidden behind the header */
+}
+
+/* Optional: Add some space below header to avoid overlap */
+
+.table{
+  margin-top: 52px;
+}
+.user-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.card-body {
+  padding: 20px;
+  width: 600px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #333;
+}
+
+.list-group {
+  padding: 0;
+}
+
+.list-group-item {
+  padding: 10px;
+  border: none;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+}
+
+.list-group-item strong {
+  color: #555;
+}
+
+.list-group-item:hover {
+  background-color: #f1f1f1;
+}
+
+ /* Form group */
   .form-group {
     display: flex;
     flex-direction: column;

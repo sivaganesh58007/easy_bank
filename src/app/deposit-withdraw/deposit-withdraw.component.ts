@@ -145,7 +145,7 @@ processing():void{
               this.toastr.success(this.successMessage)             
           },(error) => {
            
-            if(error.status === 404){
+            if(error.status === 404||error.status===400){
               this.isLoading=false
               this.isModalOpen=false
 

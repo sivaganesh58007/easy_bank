@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SignupService } from '../services/signup.service';
 import { LoginService } from '../services/login-service.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+
+
 
 function passwordLengthValidator(control: AbstractControl): { [key: string]: any } | null {
   const password = control.value;
@@ -33,7 +36,9 @@ export class AdminDashboardComponent implements OnInit {
   errorMessage:string|null=null;
   emailError: string | null = null; 
   formError: string | null = null;
-
+  searchTerm:string='';
+  userDetails:any=null
+  allusers:any[]=[];
 
 
 
@@ -41,17 +46,17 @@ export class AdminDashboardComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private fb: FormBuilder,
-    private modalService: NgbModal,
     private signupService: SignupService,
     private loginservice:LoginService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router:Router
+
 
   )
    {}
 
   ngOnInit(): void {
-    
-    this.getUsers();
+  this.getUsers()
     this.userForm = this.fb.group({
       first_name: ['', Validators.required],
       last_name: ['', Validators.required],
@@ -103,6 +108,44 @@ onEmailBlur(): void {
       error => console.error('Error fetching users:', error)
     );
   }
+
+  search(){
+    if (this.searchTerm.trim()) {
+      const apiUrl = 'http://127.0.0.1:5000/search'; // Replace with your actual Flask endpoint
+      const params = new HttpParams().set('searchTerm', this.searchTerm);
+      this.http.get<any>(apiUrl, { params }).subscribe(
+        (response) => {
+          console.log(response)
+
+          if (response.result && response.result.length > 0) {
+            this.allusers = response.result; // Assuming only one user is returned
+            this.errorMessage = ''; 
+            this.userDetails=true
+            // this.router.navigate(['/search']);
+
+          
+            
+
+          } else {
+            this.allusers = [];
+            this.errorMessage = 'No items found';
+          }
+        },
+        (error) => {
+          console.error('Error fetching user details:', error);
+          this.errorMessage = 'Error occurred while fetching data';
+          this.userDetails = null;
+        }
+      );
+    
+  }
+  else{
+    this.errorMessage='please enter the account number'
+    // this.allusers=[]
+  }
+}
+
+
   openModal(){
     this.showModal=true
 

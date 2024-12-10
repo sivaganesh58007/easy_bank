@@ -108,14 +108,6 @@ export class ProfileComponent implements OnInit {
   }
 
 
-  onProfilePicChange(event: Event) {
-    const fileInput = event.target as HTMLInputElement;
-    const file = fileInput.files?.[0];
-    if (file) {
-      this.profilePicFile = file; // Store the file in profilePicFile
-      
-      this.profilePicUrl = fileInput.value.slice(12,); // Sanitize the blob URL    }
-  }
   
-}
+
 }

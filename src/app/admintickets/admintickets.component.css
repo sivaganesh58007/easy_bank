@@ -129,7 +129,7 @@ margin-left: 120px;
 /* Message input box */
 .send-message-box {
   display: flex;
-  padding: 15px;
+  padding: 30px;
   border-top: 1px solid #e0e0e0;
 }
 

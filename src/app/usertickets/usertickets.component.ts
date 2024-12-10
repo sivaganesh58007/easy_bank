@@ -4,7 +4,8 @@ import { UserticketsService } from '../services/usertickets.service';
 @Component({
   selector: 'app-usertickets',
   templateUrl: './usertickets.component.html',
-  styleUrls: ['./usertickets.component.css']
+  styleUrls: ['./usertickets.component.css'],
+  
 })
 export class UserticketsComponent implements OnInit, AfterViewChecked {
   @ViewChild('chatContainer') private chatContainer: ElementRef | undefined;
