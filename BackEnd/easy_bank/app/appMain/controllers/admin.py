@@ -11,6 +11,7 @@ getdetails_api_blueprint = AdminDto.getdetailsapi
 adduser_api_blueprint=AdminDto.adduserapi
 delete_user_blueprint=AdminDto.deleteuserapi
 search_api_blueprint=AdminDto.searchuserapi
+view_feedback_blueprint=AdminDto.viewfeedbackapi
 
 
 
@@ -46,21 +47,22 @@ class AdminUsers(Resource):
 @search_api_blueprint.route('',methods=['GET'])
 class AdminUsers(Resource):
     def get(self):
-        query = request.args.get('searchTerm    ','').strip()
+        query = request.args.get('searchTerm','').strip()
         if not query:
             return {"message": "no result"} 
         users = User.query.filter((User.account_number.ilike(f"{query}%"))|
                                   User.first_name.ilike(f"{query}%")|
-                                  User.last_name.ilike(f"{query}%")).all()
+                                  User.last_name.ilike(f"{query}%")|
+                                  User.phone_number.ilike(f"{query}%")|
+                                  User.email.ilike(f"{query}%")).all()
         data = [
             {
-                "id":str( user.user_id),
                 "first_name": user.first_name,
                 "last_name": user.last_name,
                 "account_number": user.account_number,
                 "email": user.email,
                 "dob":str(user.date_of_birth),
-                
+                "phone_number":user.phone_number,
                 "balance": user.balance.current_balance  
             }
             for user in users
@@ -69,6 +71,8 @@ class AdminUsers(Resource):
             return{'message':'no items found'}
 
         return {"result": data}, 200    
+
+
 
 
 

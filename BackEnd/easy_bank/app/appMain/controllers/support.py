@@ -49,9 +49,7 @@ class UserTicket(Resource):
             )
             db.session.add(new_ticket)
             db.session.commit()
-
             return {"message": "ticket raised successfully"}, 200
-
         except Exception as e:
             db.session.rollback()
             return {"message": f"An error occurred: {str(e)}"}, 500
