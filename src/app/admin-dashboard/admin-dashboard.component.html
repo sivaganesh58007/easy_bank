@@ -31,6 +31,9 @@
               <strong>Date Of Birth:</strong> {{ user.dob}}
             </li>
             <li class="list-group-item">
+              <strong>Phone Number:</strong> {{ user.phone_number}}
+            </li>
+            <li class="list-group-item">
               <strong>Balance:</strong> {{ user.balance | currency: 'INR' }}
             </li>
           </ul>
@@ -56,7 +59,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of users">
+      <tr *ngFor="let user of users" >
         <td>{{ user.first_name }}</td>
         <td>{{ user.last_name }}</td>
         <td>{{ user.email }}</td>
@@ -106,7 +109,6 @@
         character and one symbol.</span>
     </div>
     <button type="submit">Register</button>
-    <!-- Error message area -->
     <div *ngIf="formError" class="error-message">
       {{ formError }}
     </div>

@@ -115,7 +115,7 @@ onEmailBlur(): void {
       const params = new HttpParams().set('searchTerm', this.searchTerm);
       this.http.get<any>(apiUrl, { params }).subscribe(
         (response) => {
-          console.log(response)
+          console.log(response,"hello")
 
           if (response.result && response.result.length > 0) {
             this.allusers = response.result; // Assuming only one user is returned
