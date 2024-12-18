@@ -1,15 +1,15 @@
+from flask_jwt_extended import get_jwt_identity, jwt_required
 from flask_restx import Resource
 from flask import request, jsonify
 from app.appMain.models.user import User
 from app.appMain.dto.admin import AdminDto
+from app.appMain.models.feedback import Feedback
 
 
 from datetime import datetime
 
-adimn_signup_blueprint = AdminDto.admin_api
 getdetails_api_blueprint = AdminDto.getdetailsapi
 adduser_api_blueprint=AdminDto.adduserapi
-delete_user_blueprint=AdminDto.deleteuserapi
 search_api_blueprint=AdminDto.searchuserapi
 view_feedback_blueprint=AdminDto.viewfeedbackapi
 
@@ -72,6 +72,38 @@ class AdminUsers(Resource):
 
         return {"result": data}, 200    
 
+
+
+
+
+@view_feedback_blueprint.route('',methods=['GET'])
+class view_feedback(Resource):
+    @jwt_required()
+    def get(self):
+        current_user = get_jwt_identity()
+        user_id = current_user['user_id']
+        user = User.query.filter_by(user_id=user_id).first()
+        if user.roles.role_name != 'admin':
+            return {"message": "only admin can view"}
+        feedbacks = Feedback.query.all()
+        all_feedbacks = []  
+        for feedback in feedbacks:
+            feedback_data = {  
+                'feedback_id': str(feedback.feedback_id),
+                'first_name': str(feedback.users.first_name) if feedback.users else None,
+                'last_name': str(feedback.users.last_name) if feedback.users else None,
+                'rating': feedback.rating,
+                'comment': feedback.comment,
+                'created_at': feedback.feedback_created_at.strftime('%Y-%m-%d %H:%M:%S')  # Format the datetime
+            }
+            all_feedbacks.append(feedback_data) 
+
+        return {"feedbacks": all_feedbacks}, 200
+
+
+
+
+        
 
 
 

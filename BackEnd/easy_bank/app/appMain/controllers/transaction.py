@@ -17,7 +17,6 @@ withdraw_blueprint = TransactionDto.withdrawapi
 deposite_blueprint = TransactionDto.depositeapi
 transfer_blueprint = TransactionDto.transferapi
 transactionhistory_blueprint = TransactionDto.transactionhistoryapi
-accountdetails_blueprint=TransactionDto.accountdetailsapi
 balance_blueprint=TransactionDto.balanceapi
 
 

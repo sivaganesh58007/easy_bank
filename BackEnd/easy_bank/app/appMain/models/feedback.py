@@ -12,7 +12,12 @@ class Feedback(db.Model):
     feedback_created_at = db.Column(db.TIMESTAMP)
     feedback_updated_at = db.Column(db.TIMESTAMP)
 
-    user = db.relationship('User', backref='feedbacks')
+    # user = db.relationship('User', backref='feedback')
+    users = db.relationship("User", backref="feedback")
+
+    
+
+
 
     def __init__(self, **kwargs):
         super(Feedback, self).__init__(**kwargs)

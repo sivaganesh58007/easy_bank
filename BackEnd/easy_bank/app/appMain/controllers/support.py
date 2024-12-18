@@ -100,14 +100,13 @@ class AllTickets(Resource):
                 return {"message": "only admin can view"}
 
             tickets = Ticket.query.all()
-
             tickets_list = []
             for ticket in tickets:
                 ticket_data = {
                     'ticket_id': str(ticket.ticket_id),
                     'ticket': str(ticket.ticket),
                     'description': str(ticket.description),
-                    'status_id': str(ticket.status_id),
+                    'status': str(ticket.status.status_id),
                     'user_id': str(user.user_id),
                     'first_name': str(ticket.users.first_name),
                     'last_name': str(ticket.users.last_name),
@@ -120,6 +119,7 @@ class AllTickets(Resource):
                 tickets_list.append(ticket_data)
 
             tickets_list.sort(key=lambda x: (x['messageCount'] == 0, x['updated_at']))
+            # tickets_list.reverse()
             return tickets_list, 200
 
         except Exception as e:
