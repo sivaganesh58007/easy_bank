@@ -31,7 +31,7 @@ h1 {
 .contact-info {
   text-align: center;
   padding: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .contact-info i {
@@ -143,6 +143,7 @@ span {
   font-size: 16px;
 }
 
+
 /* Query button */
 .query-button {
   padding: 8px 15px;
@@ -151,7 +152,6 @@ span {
   color: white;
   border: none;
 }
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .header {
@@ -168,7 +168,7 @@ span {
 
   .contact-info {
       padding: 10px;
-      margin-bottom: 15px;
+      margin-bottom: 5px;
   }
 
   .contact-info p {
@@ -190,3 +190,4 @@ span {
       font-size: 14px;
   }
 }
+

@@ -69,7 +69,7 @@ displayTime: string = '05:00';
   onSubmit() {
     if (this.loginForm.invalid) {
       // this.loginForm.markAllAsTouched();
-      this.errorMessage = 'enter valid credentials'; // For missing values
+      this.errorMessage = 'Email and password fields cannot be empty.'; // For missing values
       return;
     }
   

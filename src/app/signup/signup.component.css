@@ -148,8 +148,8 @@
   
   .sigin a {
     color: #134B70;
-    text-decoration: none;
-    font-weight: bold;
+    /* text-decoration: underline; */
+    margin-left: 2px;
   }
   
   .sigin a:hover {

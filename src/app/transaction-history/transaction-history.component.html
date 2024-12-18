@@ -1,5 +1,11 @@
 <section class="transaction-history-container">
-  <h2>Transaction History</h2>
+  <div class="history-download">
+    <h2>Transaction History</h2>
+    <i (click)="downloadPDF()" id= 'download' class="fa-solid fa-download"></i>
+
+  </div>
+
+
   <!-- Filter Section -->
   <form [formGroup]="filterForm" (ngSubmit)="applyFilters()" class="filter-form">
     <div class="filter-group">
@@ -22,10 +28,11 @@
         <input type="date" formControlName="end_date" id="end_date" (change)="isValid()" >
     </div>
     <!-- <h1>{{isValid()}}</h1> -->
-    <div></div>
-    <button type="submit" class="btn apply-btn">Apply Filters</button>
+    <div class="buttons">
+       <button type="submit" class="btn apply-btn">Apply Filters</button>
 
-    <button type="button" (click)="resetFilters()" class="btn reset-btn" >Reset Filters</button>
+      <button type="button" (click)="resetFilters()" class="btn reset-btn" >Reset Filters</button></div>
+   
   </form>
 
   <!-- Transaction Table -->
@@ -53,7 +60,7 @@
   <!-- Pagination -->
   <div *ngIf="totalPages > 1" class="pagination">
     <!-- <button (click)="goToFirstPage()" [disabled]="currentPage === 1">First</button> -->
-    <button (click)="goToPreviousPage()" [disabled]="currentPage === 1">Previous</button>
+    <button (click)="goToPreviousPage()" [disabled]="currentPage === 1" class="Previous">Previous</button>
   
     <!-- Display only a subset of pages near the current page -->
     <ng-container *ngFor="let page of [].constructor(totalPages); let i = index">
@@ -68,5 +75,6 @@
     <button (click)="goToNextPage()" [disabled]="currentPage === totalPages">Next</button>
     <!-- <button (click)="goToLastPage()" [disabled]="currentPage === totalPages">Last</button> -->
   </div>
+
   
 </section>

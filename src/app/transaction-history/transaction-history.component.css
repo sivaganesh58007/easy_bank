@@ -120,6 +120,18 @@
   font-weight: bold;
   background-color: #508C9B; /* Darker shade for active page */
 }
+#download{
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  cursor: pointer;
+  font-size: 20px;
+  
+}
+.history-download{
+display: flex;
+justify-content: space-between;
+}
 
 
 
@@ -145,8 +157,11 @@
     width: 38%;
     margin: 5px 1%;
   }
-  
-    
+.buttons{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
 
 
 }

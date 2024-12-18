@@ -5,6 +5,7 @@
     width: 450px;
     background-color: #f9f9f9;
     box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.1);
+    
   }
   
   .ticket-list {
@@ -13,6 +14,7 @@
     height: 90vh; /* Set a max height for the list */
     overflow-y: auto;
     overflow: scroll;
+
 
   }
   .ticket-list::-webkit-scrollbar{
@@ -132,7 +134,11 @@ margin-left: 120px;
   padding: 30px;
   border-top: 1px solid #e0e0e0;
 }
+ 
+.chat-description {
+  text-align: center;
 
+}
 .send-message-box input {
   flex-grow: 1;
   padding: 10px;
@@ -235,3 +241,19 @@ small{
   text-align: right;
 }
     
+.ticket-uerName{
+  display: flex;
+  justify-content: space-between;
+}
+.no-ticket {
+  text-align: center;
+  padding: 20px;
+  color: #141313;
+  font-size: 30px;
+  width: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.5;
+}
+

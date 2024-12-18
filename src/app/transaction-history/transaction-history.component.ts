@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TransactionHistoryService } from '../services/transaction-history.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
-
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
 @Component({
   selector: 'app-transaction-history',
   templateUrl: './transaction-history.component.html',
@@ -125,6 +126,33 @@ export class TransactionHistoryComponent implements OnInit {
       (document.getElementById('start_date') as HTMLInputElement).value='';
       (document.getElementById('end_date') as HTMLInputElement).value=''
     }
+  }
+
+  downloadPDF(): void {
+    const doc = new jsPDF();
+
+    // Title
+    doc.text('Transaction History - Page ' + this.currentPage, 14, 15);
+
+    // Prepare table data
+    const tableData = this.transactions.map((transaction) => [
+      new Date(transaction.date).toLocaleDateString() +
+        ' ' +
+        new Date(transaction.date).toLocaleTimeString(),
+      transaction.type,
+      `₹ ${transaction.amount.toFixed(2)}`,
+      transaction.recipient
+    ]);
+
+    // Add table to PDF
+    autoTable(doc, {
+      head: [['Date', 'Type', 'Amount', 'Recipient']],
+      body: tableData,
+      startY: 20
+    });
+
+    // Save the PDF
+    doc.save(`transaction_page_${this.currentPage}.pdf`);
   }
   
   

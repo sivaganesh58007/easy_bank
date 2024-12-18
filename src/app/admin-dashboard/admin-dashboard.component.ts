@@ -104,7 +104,11 @@ onEmailBlur(): void {
 
   getUsers(): void {
     this.http.get<any>(`http://127.0.0.1:5000/getdetails`).subscribe(
-      data => this.users = data.users,
+      data => {
+        this.users = data.users
+
+      },
+
       error => console.error('Error fetching users:', error)
     );
   }

@@ -1,1 +1,23 @@
-/* Home.css */
+/* Home.css
+@media(max-width:426px){
+    app-footer{
+        display: none;
+    }
+}*/
+app-header{
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+} 
+main{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#body{
+    margin-top: 5vh;
+}

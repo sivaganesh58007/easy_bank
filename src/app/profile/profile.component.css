@@ -151,8 +151,19 @@
     font-size: 0.9rem;
   }
 
-  .save-btn,
-  .edit-button {
+
+  .button-container{
     font-size: 0.8rem;
   }
+}
+@media (max-width:350px) {
+  .button-container{
+    width: 80%;
+  }
+  .form-group{
+    width:80%
+
+  }
+
+  
 }

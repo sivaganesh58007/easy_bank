@@ -23,6 +23,7 @@ export class AdminticketsComponent implements OnInit, AfterViewChecked {
   Ticketselect: any;
   user_name: string | null = null;
   private shouldScroll: boolean = false; // Flag to control auto-scrolling
+  Nilltickets: boolean=false;
 
   constructor(private adminticketservice: AdminticketsService) { }
 
@@ -49,6 +50,13 @@ export class AdminticketsComponent implements OnInit, AfterViewChecked {
     this.adminticketservice.getTickets().subscribe(
       (data) => {
         this.tickets = data;
+        // if (this.tickets.length > 0) {
+        //   this.Nilltickets = false;
+        //   this.selectTicket(this.tickets[0]);
+        // } else {
+        //   this.Nilltickets = true;
+        // }
+  
       },
       error => {
         console.log('Error loading tickets:', error);
@@ -74,6 +82,8 @@ export class AdminticketsComponent implements OnInit, AfterViewChecked {
 
     this.adminticketservice.getMessages(ticket.ticket_id).subscribe(
       (data) => {
+        this.description = ticket.description;
+
         this.messages = data.message_data;
         this.user_id = data.ticket_user_id;
         this.messages.forEach(message => {
@@ -81,7 +91,7 @@ export class AdminticketsComponent implements OnInit, AfterViewChecked {
             timeStyle: "short",
           });
         });
-        this.shouldScroll = true; // Trigger scroll after loading messages
+        this.shouldScroll = true; 
       },
       (error) => {
         console.log('Error loading messages:', error);

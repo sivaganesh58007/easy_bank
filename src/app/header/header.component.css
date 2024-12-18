@@ -60,6 +60,7 @@ ul li:hover{
 
 .sidebar-open {
   right: 0; /* Slide the sidebar into view */
+  z-index: 2256;
 }
 
 /* Toggle button */

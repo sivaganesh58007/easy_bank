@@ -50,11 +50,15 @@ export class UserticketsComponent implements OnInit, AfterViewChecked {
     this.userticketService.getTickets().subscribe(
       (data) => {
         this.tickets = data; 
-        console.log(this.tickets)
-        if(this.tickets.length==0){
-            this.Nilltickets=true
-        }
+        console.log(this.tickets);
         
+        // Check if tickets are available and select the first one by default
+        if (this.tickets.length > 0) {
+          this.Nilltickets = false;
+          this.selectTicket(this.tickets[0]);
+        } else {
+          this.Nilltickets = true;
+        }
       },
       error => {
         console.log('Error loading tickets:', error);
@@ -73,6 +77,7 @@ export class UserticketsComponent implements OnInit, AfterViewChecked {
     this.ticket_id = ticket.ticket_id;
     this.userticketService.getMessages(ticket.ticket_id).subscribe(
       (data) => {
+        
         this.description = ticket.description;
         this.messages = data.message_data;
         this.messages.forEach(message => {

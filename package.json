@@ -24,6 +24,8 @@
     "@ng-bootstrap/ng-bootstrap": "^13.1.0",
     "@types/bootstrap": "^5.2.10",
     "bootstrap": "^5.3.3",
+    "jspdf": "^2.5.2",
+    "jspdf-autotable": "^3.8.4",
     "ngx-socket-io": "^4.2.0",
     "ngx-toastr": "^14.3.0",
     "rxjs": "~7.5.0",

@@ -45,6 +45,7 @@
   background-color: #fff;
   z-index: 1000; 
   padding: 10px 0; 
+  
 }
 
 
@@ -52,12 +53,21 @@
 
 
 #user-list {
+  display: flex;
+  flex-direction: row;
   padding-top: 20px;
   margin-top: 20px;
   max-width: 900px; 
-  margin: auto;
+  
   /* Adjust as needed to create spacing for the content */
 }
+/* 
+.user-search{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+} */
 
 /* Add spacing to the content below header */
 .result {
@@ -68,6 +78,7 @@
 
 .table{
   margin-top: 52px;
+  z-index: -2;
 }
 .user-card {
   display: flex;
@@ -81,6 +92,8 @@
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   background-color: #fff;
+  margin-top: 50px;
+
 }
 
 .card-body {
@@ -104,6 +117,7 @@
   border: none;
   font-size: 1rem;
   background-color: #f9f9f9;
+  width: 90%;
 }
 
 .list-group-item strong {
@@ -220,10 +234,6 @@
 
 
   }
-  
-  
-
-
 
 
   #date_of_birth {
@@ -237,3 +247,53 @@
 }
 
 
+.dashboard-heder{
+  position:sticky;
+  top:72px;
+  width: 100%;
+  background-color: white;
+  z-index: 553;
+}
+
+.alert{
+  margin-top: 100px;
+}
+
+
+@media (max-width:500px){
+  .card-body{
+    width: 380px;
+  }
+  #user-list{
+    display: flex;
+    /* flex-direction: column; */
+   
+   }
+   #user-list h2{
+    display: none;
+
+   }
+  
+
+
+
+}
+@media(max-width:380px){
+  #user-list{
+    display: flex;
+    flex-direction: column;
+  }
+  .add{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+  }
+}
+@media (max-width:500px) {
+
+  .table{
+    margin-top: 100px;
+  }
+  
+}
